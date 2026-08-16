@@ -1,0 +1,13 @@
+{
+  "config": {
+    "default": true,
+    // Prose is written one sentence per idea, not hard-wrapped at a fixed column.
+    "MD013": false,
+    // Fenced blocks must declare a language; these are the ones this project uses.
+    "MD040": { "allowed_languages": ["text", "json", "bash", "yaml", "cpp"] },
+    // The changelog and the ADR template reuse sibling headings by design.
+    "MD024": { "siblings_only": true }
+  },
+  "globs": ["**/*.md"],
+  "ignores": ["node_modules/**"]
+}

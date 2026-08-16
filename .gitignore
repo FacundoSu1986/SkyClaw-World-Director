@@ -1,0 +1,72 @@
+# --- Build output (C++ / CMake / SKSE plugin) ---
+build/
+out/
+cmake-build-*/
+CMakeUserPresets.json
+CMakeFiles/
+CMakeCache.txt
+install/
+*.obj
+*.o
+*.lib
+*.a
+*.exp
+*.ilk
+*.pdb
+*.dll
+*.exe
+
+# --- vcpkg ---
+vcpkg_installed/
+.vcpkg-root
+
+# --- Visual Studio / Rider / VS Code ---
+.vs/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.default.json
+.idea/
+*.user
+*.suo
+*.sln.docstates
+*.VC.db
+*.VC.VC.opendb
+
+# --- External director process (Python) ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# --- External director process (Node) ---
+node_modules/
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# --- Runtime artifacts, captures and local state ---
+logs/
+*.log
+captures/
+profiling/
+local/
+*.local.json
+
+# Skyrim save files and runtime dumps must never be committed:
+# they contain personal playthrough data and are large binaries.
+*.ess
+*.skse
+*.bak
+*.dmp
+
+# --- OS noise ---
+.DS_Store
+Thumbs.db
+desktop.ini
