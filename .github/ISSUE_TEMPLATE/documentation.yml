@@ -1,0 +1,44 @@
+name: Documentation correction
+description: A document overstates, understates or misdescribes something.
+title: "docs: "
+labels: ["documentation"]
+body:
+  - type: dropdown
+    id: document
+    attributes:
+      label: Document
+      options:
+        - README.md
+        - docs/ARCHITECTURE.md
+        - docs/ROADMAP.md
+        - docs/adr/
+        - CONTRIBUTING.md
+        - SECURITY.md
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: current
+    attributes:
+      label: What it currently says
+      description: Quote the passage.
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong with it
+      description: >
+        Is it inaccurate, or is it a claim presented as verified when it is not? Those are
+        different problems and this project cares about the second one.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed wording
+    validations:
+      required: false

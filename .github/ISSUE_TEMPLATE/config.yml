@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security report
+    url: https://github.com/FacundoSu1986/SkyClaw-World-Director/security/advisories/new
+    about: Report a security issue privately. Do not open a public issue.
+  - name: Questions and open discussion
+    url: https://github.com/FacundoSu1986/SkyClaw-World-Director/discussions
+    about: Design questions and speculative ideas belong here, not in the issue tracker.

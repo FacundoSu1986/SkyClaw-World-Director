@@ -1,0 +1,61 @@
+name: Research spike
+description: Propose an experiment that would prove or disprove something the project currently assumes.
+title: "spike: "
+labels: ["spike", "needs-evidence"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A spike answers one question with a reproducible result. If the outcome cannot
+        change what the project does next, it is probably not worth running.
+
+  - type: input
+    id: phase
+    attributes:
+      label: Roadmap phase
+      description: Which phase in `docs/ROADMAP.md` does this belong to?
+      placeholder: "Phase 2 — Outbound IPC"
+    validations:
+      required: true
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+      description: The single question this spike answers. State it so the answer can be yes or no.
+    validations:
+      required: true
+
+  - type: textarea
+    id: assumption
+    attributes:
+      label: Current assumption
+      description: What does the project currently assume, and where is that written down?
+    validations:
+      required: true
+
+  - type: textarea
+    id: method
+    attributes:
+      label: Method
+      description: What will be built or measured, and how would someone else re-run it?
+    validations:
+      required: true
+
+  - type: textarea
+    id: success
+    attributes:
+      label: Success criteria
+      description: What result counts as proven, and what result counts as disproven?
+    validations:
+      required: true
+
+  - type: textarea
+    id: risk
+    attributes:
+      label: Safety and blast radius
+      description: >
+        Does this touch game state, memory, or quest-critical actors? What is the worst
+        outcome if it goes wrong, and how is it reverted?
+    validations:
+      required: true

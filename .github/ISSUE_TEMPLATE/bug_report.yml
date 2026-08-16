@@ -1,0 +1,59 @@
+name: Bug report
+description: Something behaves differently from what this repository documents.
+title: "bug: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This project does not ship a binary yet. Bugs are most likely in documentation,
+        tooling, or a spike someone has already merged. Crashes inside Skyrim, SKSE or
+        third-party mods belong upstream.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+      description: Quote the document or acceptance criterion that says otherwise.
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Only if the report involves running something.
+      value: |
+        - Skyrim build (SE/AE + version):
+        - SKSE version:
+        - Other plugins loaded:
+        - OS:
+    validations:
+      required: false
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Paste relevant log output. Do not attach save files.
+      render: text
+    validations:
+      required: false

@@ -1,0 +1,57 @@
+name: Docs
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+# This repository contains documentation only, so CI needs nothing beyond read access.
+permissions:
+  contents: read
+
+concurrency:
+  group: docs-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  markdownlint:
+    name: Lint markdown
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+
+      - name: Run markdownlint
+        uses: DavidAnson/markdownlint-cli2-action@v19
+        with:
+          globs: "**/*.md"
+
+  links:
+    name: Check internal links
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+
+      # --offline keeps this deterministic: it validates relative links between files in
+      # the repository and never depends on a third-party site being reachable.
+      - name: Run lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --offline --no-progress --verbose "**/*.md"
+          fail: true
+
+  templates:
+    name: Validate issue templates
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+
+      - name: Parse YAML
+        run: |
+          for file in .github/ISSUE_TEMPLATE/*.yml .github/workflows/*.yml; do
+            python3 -c "import sys, yaml; yaml.safe_load(open(sys.argv[1]))" "$file"
+            echo "ok: $file"
+          done
